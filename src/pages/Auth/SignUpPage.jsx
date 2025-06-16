@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Users, Award, Target, Zap } from 'lucide-react';
+import { Eye, EyeOff, BookOpen, Users, Award, Target, CheckCircle, Zap } from 'lucide-react';
+
 import { AuthLayout, Logo } from '../../layouts/AuthLayout';
 import { FormInput } from '../../components/CustomElements/FormInput';
 import { Link } from 'react-router-dom';
@@ -64,34 +65,59 @@ const SignUpPage = () => {
     };
 
     const heroContent = (
-        <div className="text-white space-y-6 max-w-xl text-center">
-            <h2 className="text-4xl font-bold">Start Your Learning Journey</h2>
-            <p className="text-xl opacity-90">Join thousands of learners and instructors in our community</p>
+        <div className="flex-1 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 flex items-center justify-center p-8 relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-16 left-16 w-24 h-24 bg-white rounded-xl transform rotate-12"></div>
+                <div className="absolute top-40 right-24 w-20 h-20 bg-white rounded-xl transform -rotate-6"></div>
+                <div className="absolute bottom-24 left-24 w-16 h-16 bg-white rounded-xl transform rotate-45"></div>
+                <div className="absolute bottom-40 right-40 w-28 h-28 bg-white rounded-xl transform -rotate-12"></div>
+                <div className="absolute top-1/2 left-1/3 w-12 h-12 bg-white rounded-xl transform rotate-45"></div>
+                <div className="absolute top-1/4 right-1/4 w-18 h-18 bg-white rounded-xl transform -rotate-45"></div>
+            </div>
 
-            <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-white/10 rounded-lg">
-                        <Users className="w-6 h-6" />
+            <div className="relative z-10 text-center text-white max-w-lg">
+                {/* Animated Achievement Icons */}
+                <div className="mb-8 flex justify-center space-x-6">
+                    <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/30 animate-bounce">
+                        <Zap className="w-12 h-12 text-yellow-300" />
                     </div>
-                    <span>Join active community</span>
+                    <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/30 animate-bounce delay-150">
+                        <Award className="w-12 h-12 text-yellow-300" />
+                    </div>
+                    <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/30 animate-bounce delay-300">
+                        <Target className="w-12 h-12 text-yellow-300" />
+                    </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-white/10 rounded-lg">
-                        <Award className="w-6 h-6" />
+
+                <h2 className="text-4xl font-bold mb-6 leading-tight">
+                    Start Your Learning
+                    <span className="block text-yellow-300">Adventure Today</span>
+                </h2>
+
+                <p className="text-xl text-emerald-100 mb-8 leading-relaxed">
+                    Join our community of learners and unlock your potential with
+                    world-class courses, expert instructors, and hands-on projects.
+                </p>
+
+                {/* Benefits */}
+                <div className="space-y-4 text-left">
+                    <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <CheckCircle className="w-6 h-6 text-yellow-300 flex-shrink-0" />
+                        <span className="text-emerald-100">Access to 250+ premium courses</span>
                     </div>
-                    <span>Expert instructors</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-white/10 rounded-lg">
-                        <Target className="w-6 h-6" />
+                    <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <CheckCircle className="w-6 h-6 text-yellow-300 flex-shrink-0" />
+                        <span className="text-emerald-100">Learn from industry experts</span>
                     </div>
-                    <span>Achieve your goals</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-white/10 rounded-lg">
-                        <Zap className="w-6 h-6" />
+                    <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <CheckCircle className="w-6 h-6 text-yellow-300 flex-shrink-0" />
+                        <span className="text-emerald-100">Get certified upon completion</span>
                     </div>
-                    <span>Learn at your pace</span>
+                    <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <CheckCircle className="w-6 h-6 text-yellow-300 flex-shrink-0" />
+                        <span className="text-emerald-100">24/7 community support</span>
+                    </div>
                 </div>
             </div>
         </div>
