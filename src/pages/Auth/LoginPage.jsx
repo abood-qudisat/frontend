@@ -7,8 +7,8 @@ import { Eye, EyeOff, BookOpen, Users, Award, Target, CheckCircle, Zap } from 'l
 const LoginPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
-        email: '',
-        password: '',
+        email: 'testtest@tes.com',
+        password: 'dsd@fdf',
         showPassword: false,
         rememberMe: false
     });
@@ -111,7 +111,7 @@ const LoginPage = () => {
 
     return (
         <AuthLayout heroContent={heroContent}>
-            <Logo variant="blue" />
+            <Logo variant="green" />
             <h1 className="text-2xl font-semibold text-gray-800 mb-2">Welcome Back!</h1>
             <p className="text-gray-600 mb-6">Sign in to continue your learning journey</p>
 

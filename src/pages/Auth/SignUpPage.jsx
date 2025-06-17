@@ -234,8 +234,8 @@ const SignUpPage = () => {
                             className="form-checkbox mt-1 text-emerald-600 focus:ring-emerald-500"
                         />
                         <span className="text-sm text-gray-600">
-                            I agree to the <a href="#" className="text-emerald-600 hover:text-emerald-700">Terms of Service</a> and{' '}
-                            <a href="#" className="text-emerald-600 hover:text-emerald-700">Privacy Policy</a>
+                            I agree to the <a href="/terms-of-service" className="text-emerald-600 hover:text-emerald-700">Terms of Service</a> and{' '}
+                            <a href="/privacy-policy" className="text-emerald-600 hover:text-emerald-700">Privacy Policy</a>
                         </span>
                     </label>
                     {errors.agreeToTerms && (

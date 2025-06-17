@@ -22,11 +22,12 @@ export const FormInput = ({
                     type={isPasswordType && showPassword ? 'text' : type}
                     id={id}
                     className={`
-            w-full px-4 py-3 ${isPasswordType ? 'pr-12' : ''}
-            border border-gray-300 rounded-lg
-            focus:ring-2 focus:ring-blue-500 focus:border-transparent
-            transition-all duration-200 bg-white/80 backdrop-blur-sm
-            ${error ? 'border-red-500 focus:ring-red-500' : ''}`}
+                        w-full px-4 py-3 ${isPasswordType ? 'pr-12' : ''}
+                        border border-gray-300 rounded-lg
+                        focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                        transition-all duration-200 bg-white/80 backdrop-blur-sm
+                        ${error ? 'border-red-500 focus:ring-red-500' : ''}text-black`}
+
                     {...props}
                 />
                 {isPasswordType && (
