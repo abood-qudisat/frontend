@@ -9,7 +9,8 @@ import ForgotPasswordPage from './pages/Auth/ForgotPasswordPage';
 import PrivacyPolicy from './pages/Auth/PrivacyPolicy';
 import TermsOfService from './pages/Auth/TermsOfService';
 import Dashboard from './pages/User/Dashboard';
-import Assignments from './pages/User/Assignments';
+import AssignmentsPage from './pages/User/AssignmentsPage';
+import CoursesPage from './pages/User/CoursesPage';
 
 function App() {
   return (
@@ -21,8 +22,11 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/assignments" element={<Assignments />} />
+
+        <Route path="/assignments" element={<AssignmentsPage />} />
+        <Route path="/courses" element={<CoursesPage />} />
         <Route path="/" element={<Dashboard />} />
+
       </Routes>
     </Router>
   );
