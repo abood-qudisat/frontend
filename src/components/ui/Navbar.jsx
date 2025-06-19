@@ -26,8 +26,8 @@ const Navbar = ({ toggleSidebar }) => {
 
   const handleProfileClick = () => {
     // Navigate to profile page when implemented
-    // navigate('/profile');
     setDropdownOpen(false);
+    navigate('/profile');
   };
 
   const getUserDisplayName = () => {
@@ -67,7 +67,7 @@ const Navbar = ({ toggleSidebar }) => {
             {/* <span className="font-semibold text-xl text-emerald-600">LMS Portal</span> */}
           </div>
 
-          <div className="flex items-center space-x-2 md:space-x-4">
+          <div className="flex items-center space-x-4 md:space-x-4">
 
             {/* User Profile Dropdown */}
             <div className="relative">
@@ -103,9 +103,8 @@ const Navbar = ({ toggleSidebar }) => {
 
                 {/* Dropdown Arrow */}
                 <ChevronDown
-                  className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
-                    dropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -123,25 +122,15 @@ const Navbar = ({ toggleSidebar }) => {
                     {/* User Info Header */}
                     <div className="px-4 py-3 border-b border-gray-100">
                       <div className="flex items-center space-x-3">
-                        {user?.avatar ? (
-                          <img
-                            src={user.avatar}
-                            alt={getUserDisplayName()}
-                            className="w-10 h-10 rounded-full object-cover"
-                          />
-                        ) : (
-                          <div className="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-medium">
-                            {getInitials()}
-                          </div>
-                        )}
+
                         <div>
-                          <div className="font-medium text-gray-900">
+                          <div className="font-medium text-gray-900 text-left">
                             {getUserDisplayName()}
                           </div>
-                          <div className="text-sm text-gray-500">
+                          <div className="text-sm text-gray-500 text-left">
                             {user?.email}
                           </div>
-                          <div className="text-xs text-emerald-600 font-medium">
+                          <div className="text-xs text-emerald-600 font-medium text-left">
                             {getUserRole()}
                           </div>
                         </div>

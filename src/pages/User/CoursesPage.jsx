@@ -29,7 +29,7 @@ const CoursesPage = () => {
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 
       <div
-        className={`transition-all duration-300 ease-in-out pt-16 ${
+        className={`transition-all duration-300 ease-in-out pt-26 ${
           sidebarOpen ? "ml-0 lg:ml-64" : "ml-0 lg:ml-20"
         }`}
       >

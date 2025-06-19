@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, Calendar, Clock, ChevronRight, Filter, Search, CheckCircle, AlertCircle, FileText, Download, Upload, Eye, Edit3, Star, User, GraduationCap, Target } from 'lucide-react';
 import Navbar from '../../components/ui/Navbar';
 import Sidebar from '../../components/ui/Sidebar';
+import { assignments } from '../../config/dummyDaya';
 
 const AssignmentsPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -9,159 +10,6 @@ const AssignmentsPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
-
-    const assignments = [
-        {
-            id: 1,
-            title: "React Component Architecture Project",
-            course: "React Advanced",
-            courseId: "react-adv-001",
-            instructor: "Sarah Johnson",
-            instructorImg: "https://randomuser.me/api/portraits/women/1.jpg",
-            type: "Project",
-            status: "pending",
-            difficulty: "Advanced",
-            estimatedTime: "8-10 hours",
-            dueDate: "2024-06-20",
-            submittedDate: null,
-            grade: null,
-            maxPoints: 100,
-            description: "Build a scalable component architecture using React hooks and context API. Focus on reusability, performance optimization, and proper state management patterns.",
-            priority: "high",
-            tags: ["React", "Hooks", "Architecture", "State Management"],
-            attachments: [
-                { name: "project-requirements.pdf", size: "2.1 MB", type: "pdf" },
-                { name: "starter-template.zip", size: "856 KB", type: "zip" }
-            ],
-            submissionFormat: ["Code Repository", "Documentation", "Demo Video"],
-            category: "Frontend Development"
-        },
-        {
-            id: 2,
-            title: "Database Design Quiz",
-            course: "Node.js Fundamentals",
-            courseId: "node-fund-002",
-            instructor: "Michael Chen",
-            instructorImg: "https://randomuser.me/api/portraits/men/2.jpg",
-            type: "Quiz",
-            status: "completed",
-            difficulty: "Intermediate",
-            estimatedTime: "45 minutes",
-            dueDate: "2024-06-15",
-            submittedDate: "2024-06-14",
-            grade: 85,
-            maxPoints: 100,
-            description: "Test your knowledge of database design principles, normalization, and SQL optimization techniques.",
-            priority: "medium",
-            tags: ["Database", "SQL", "Normalization", "Design Patterns"],
-            attachments: [
-                { name: "study-guide.pdf", size: "1.8 MB", type: "pdf" }
-            ],
-            submissionFormat: ["Online Quiz"],
-            category: "Backend Development",
-            feedback: "Great understanding of normalization concepts. Review indexing strategies for better performance."
-        },
-        {
-            id: 3,
-            title: "Security Vulnerability Assessment",
-            course: "Web Security",
-            courseId: "websec-003",
-            instructor: "Emily Rodriguez",
-            instructorImg: "https://randomuser.me/api/portraits/women/3.jpg",
-            type: "Assignment",
-            status: "overdue",
-            difficulty: "Advanced",
-            estimatedTime: "6-8 hours",
-            dueDate: "2024-06-10",
-            submittedDate: null,
-            grade: null,
-            maxPoints: 75,
-            description: "Conduct a comprehensive security assessment of a web application. Identify vulnerabilities, document findings, and propose remediation strategies.",
-            priority: "high",
-            tags: ["Security", "Penetration Testing", "OWASP", "Vulnerability Assessment"],
-            attachments: [
-                { name: "target-application.zip", size: "5.2 MB", type: "zip" },
-                { name: "assessment-template.docx", size: "124 KB", type: "docx" }
-            ],
-            submissionFormat: ["Security Report", "Executive Summary"],
-            category: "Cybersecurity"
-        },
-        {
-            id: 4,
-            title: "API Documentation Review",
-            course: "Node.js Fundamentals",
-            courseId: "node-fund-002",
-            instructor: "Michael Chen",
-            instructorImg: "https://randomuser.me/api/portraits/men/2.jpg",
-            type: "Assignment",
-            status: "submitted",
-            difficulty: "Beginner",
-            estimatedTime: "3-4 hours",
-            dueDate: "2024-06-25",
-            submittedDate: "2024-06-18",
-            grade: null,
-            maxPoints: 50,
-            description: "Review and improve existing API documentation. Add examples, clarify endpoints, and ensure comprehensive coverage of all features.",
-            priority: "low",
-            tags: ["API", "Documentation", "REST", "Technical Writing"],
-            attachments: [
-                { name: "current-docs.pdf", size: "892 KB", type: "pdf" },
-                { name: "api-examples.json", size: "45 KB", type: "json" }
-            ],
-            submissionFormat: ["Updated Documentation", "Change Log"],
-            category: "Backend Development"
-        },
-        {
-            id: 5,
-            title: "React Hooks Deep Dive",
-            course: "React Advanced",
-            courseId: "react-adv-001",
-            instructor: "Sarah Johnson",
-            instructorImg: "https://randomuser.me/api/portraits/women/1.jpg",
-            type: "Essay",
-            status: "pending",
-            difficulty: "Intermediate",
-            estimatedTime: "4-5 hours",
-            dueDate: "2024-06-30",
-            submittedDate: null,
-            grade: null,
-            maxPoints: 80,
-            description: "Write a comprehensive essay exploring advanced React hooks patterns, custom hooks development, and performance optimization techniques.",
-            priority: "medium",
-            tags: ["React", "Hooks", "Performance", "Custom Hooks"],
-            attachments: [
-                { name: "essay-guidelines.pdf", size: "678 KB", type: "pdf" },
-                { name: "reference-materials.zip", size: "2.8 MB", type: "zip" }
-            ],
-            submissionFormat: ["Academic Essay", "Code Examples"],
-            category: "Frontend Development"
-        },
-        {
-            id: 6,
-            title: "Machine Learning Model Implementation",
-            course: "AI & Machine Learning",
-            courseId: "ai-ml-004",
-            instructor: "Dr. James Wilson",
-            instructorImg: "https://randomuser.me/api/portraits/men/4.jpg",
-            type: "Project",
-            status: "pending",
-            difficulty: "Advanced",
-            estimatedTime: "12-15 hours",
-            dueDate: "2024-07-05",
-            submittedDate: null,
-            grade: null,
-            maxPoints: 120,
-            description: "Implement and train a machine learning model for image classification. Compare different algorithms and optimize for accuracy and performance.",
-            priority: "high",
-            tags: ["Machine Learning", "Python", "TensorFlow", "Image Classification"],
-            attachments: [
-                { name: "dataset.zip", size: "45.2 MB", type: "zip" },
-                { name: "project-specification.pdf", size: "1.9 MB", type: "pdf" }
-            ],
-            submissionFormat: ["Jupyter Notebook", "Model Files", "Performance Report"],
-            category: "Artificial Intelligence"
-        }
-    ];
 
     const filters = [
         { value: 'all', label: 'All', count: assignments.length },
@@ -249,7 +97,7 @@ const AssignmentsPage = () => {
             <Navbar toggleSidebar={toggleSidebar} />
             <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 
-            <div className={`transition-all duration-300 ease-in-out pt-16 ${sidebarOpen ? 'ml-0 lg:ml-64' : 'ml-0 lg:ml-20'}`}>
+            <div className={`transition-all duration-300 ease-in-out pt-26 ${sidebarOpen ? 'ml-0 lg:ml-64' : 'ml-0 lg:ml-20'}`}>
                 <div className="px-6 py-8">
                     {/* Header Section */}
                     <div className="mb-8">
@@ -313,11 +161,10 @@ const AssignmentsPage = () => {
                                     <button
                                         key={filter.value}
                                         onClick={() => setSelectedFilter(filter.value)}
-                                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                                            selectedFilter === filter.value
-                                                ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg'
-                                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                        }`}
+                                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${selectedFilter === filter.value
+                                            ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg'
+                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                            }`}
                                     >
                                         {filter.label} ({filter.count})
                                     </button>
@@ -388,10 +235,9 @@ const AssignmentsPage = () => {
                                             Due {formatDate(assignment.dueDate)}
                                         </span>
                                         {assignment.status !== 'overdue' && (
-                                            <span className={`flex items-center gap-1 font-medium ${
-                                                getDaysUntilDue(assignment.dueDate) <= 3 ? 'text-red-500' : 
+                                            <span className={`flex items-center gap-1 font-medium ${getDaysUntilDue(assignment.dueDate) <= 3 ? 'text-red-500' :
                                                 getDaysUntilDue(assignment.dueDate) <= 7 ? 'text-amber-500' : 'text-emerald-500'
-                                            }`}>
+                                                }`}>
                                                 {getDaysUntilDue(assignment.dueDate) > 0
                                                     ? `${getDaysUntilDue(assignment.dueDate)} days left`
                                                     : getDaysUntilDue(assignment.dueDate) === 0
@@ -411,20 +257,18 @@ const AssignmentsPage = () => {
                                                 <GraduationCap className="w-5 h-5 text-gray-600" />
                                                 <span className="text-sm font-medium text-gray-600">Grade:</span>
                                             </div>
-                                            <span className={`text-lg font-bold ${
-                                                assignment.grade >= 90 ? 'text-emerald-600' : 
-                                                assignment.grade >= 80 ? 'text-blue-600' : 
-                                                assignment.grade >= 70 ? 'text-amber-600' : 'text-red-600'
-                                            }`}>
+                                            <span className={`text-lg font-bold ${assignment.grade >= 90 ? 'text-emerald-600' :
+                                                assignment.grade >= 80 ? 'text-blue-600' :
+                                                    assignment.grade >= 70 ? 'text-amber-600' : 'text-red-600'
+                                                }`}>
                                                 {assignment.grade}/{assignment.maxPoints}
                                             </span>
                                             <div className="flex-1 bg-gray-200 rounded-full h-2 ml-2">
                                                 <div
-                                                    className={`h-2 rounded-full ${
-                                                        assignment.grade >= 90 ? 'bg-emerald-500' : 
-                                                        assignment.grade >= 80 ? 'bg-blue-500' : 
-                                                        assignment.grade >= 70 ? 'bg-amber-500' : 'bg-red-500'
-                                                    }`}
+                                                    className={`h-2 rounded-full ${assignment.grade >= 90 ? 'bg-emerald-500' :
+                                                        assignment.grade >= 80 ? 'bg-blue-500' :
+                                                            assignment.grade >= 70 ? 'bg-amber-500' : 'bg-red-500'
+                                                        }`}
                                                     style={{ width: `${(assignment.grade / assignment.maxPoints) * 100}%` }}
                                                 ></div>
                                             </div>

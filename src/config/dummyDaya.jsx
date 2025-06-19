@@ -104,3 +104,193 @@ export const courses = [
         description: "Learn cloud architecture, deployment, and management using Amazon Web Services."
     }
 ];
+
+export const assignments = [
+    {
+        id: 1,
+        title: "React Component Architecture Project",
+        course: "React Advanced",
+        courseId: "react-adv-001",
+        instructor: "Sarah Johnson",
+        instructorImg: "https://randomuser.me/api/portraits/women/1.jpg",
+        type: "Project",
+        status: "pending",
+        difficulty: "Advanced",
+        estimatedTime: "8-10 hours",
+        dueDate: "2024-06-20",
+        submittedDate: null,
+        grade: null,
+        maxPoints: 100,
+        description: "Build a scalable component architecture using React hooks and context API. Focus on reusability, performance optimization, and proper state management patterns.",
+        priority: "high",
+        tags: ["React", "Hooks", "Architecture", "State Management"],
+        attachments: [
+            { name: "project-requirements.pdf", size: "2.1 MB", type: "pdf" },
+            { name: "starter-template.zip", size: "856 KB", type: "zip" }
+        ],
+        submissionFormat: ["Code Repository", "Documentation", "Demo Video"],
+        category: "Frontend Development"
+    },
+    {
+        id: 2,
+        title: "Database Design Quiz",
+        course: "Node.js Fundamentals",
+        courseId: "node-fund-002",
+        instructor: "Michael Chen",
+        instructorImg: "https://randomuser.me/api/portraits/men/2.jpg",
+        type: "Quiz",
+        status: "completed",
+        difficulty: "Intermediate",
+        estimatedTime: "45 minutes",
+        dueDate: "2024-06-15",
+        submittedDate: "2024-06-14",
+        grade: 85,
+        maxPoints: 100,
+        description: "Test your knowledge of database design principles, normalization, and SQL optimization techniques.",
+        priority: "medium",
+        tags: ["Database", "SQL", "Normalization", "Design Patterns"],
+        attachments: [
+            { name: "study-guide.pdf", size: "1.8 MB", type: "pdf" }
+        ],
+        submissionFormat: ["Online Quiz"],
+        category: "Backend Development",
+        feedback: "Great understanding of normalization concepts. Review indexing strategies for better performance."
+    },
+    {
+        id: 3,
+        title: "Security Vulnerability Assessment",
+        course: "Web Security",
+        courseId: "websec-003",
+        instructor: "Emily Rodriguez",
+        instructorImg: "https://randomuser.me/api/portraits/women/3.jpg",
+        type: "Assignment",
+        status: "overdue",
+        difficulty: "Advanced",
+        estimatedTime: "6-8 hours",
+        dueDate: "2024-06-10",
+        submittedDate: null,
+        grade: null,
+        maxPoints: 75,
+        description: "Conduct a comprehensive security assessment of a web application. Identify vulnerabilities, document findings, and propose remediation strategies.",
+        priority: "high",
+        tags: ["Security", "Penetration Testing", "OWASP", "Vulnerability Assessment"],
+        attachments: [
+            { name: "target-application.zip", size: "5.2 MB", type: "zip" },
+            { name: "assessment-template.docx", size: "124 KB", type: "docx" }
+        ],
+        submissionFormat: ["Security Report", "Executive Summary"],
+        category: "Cybersecurity"
+    },
+    {
+        id: 4,
+        title: "API Documentation Review",
+        course: "Node.js Fundamentals",
+        courseId: "node-fund-002",
+        instructor: "Michael Chen",
+        instructorImg: "https://randomuser.me/api/portraits/men/2.jpg",
+        type: "Assignment",
+        status: "submitted",
+        difficulty: "Beginner",
+        estimatedTime: "3-4 hours",
+        dueDate: "2024-06-25",
+        submittedDate: "2024-06-18",
+        grade: null,
+        maxPoints: 50,
+        description: "Review and improve existing API documentation. Add examples, clarify endpoints, and ensure comprehensive coverage of all features.",
+        priority: "low",
+        tags: ["API", "Documentation", "REST", "Technical Writing"],
+        attachments: [
+            { name: "current-docs.pdf", size: "892 KB", type: "pdf" },
+            { name: "api-examples.json", size: "45 KB", type: "json" }
+        ],
+        submissionFormat: ["Updated Documentation", "Change Log"],
+        category: "Backend Development"
+    },
+    {
+        id: 5,
+        title: "React Hooks Deep Dive",
+        course: "React Advanced",
+        courseId: "react-adv-001",
+        instructor: "Sarah Johnson",
+        instructorImg: "https://randomuser.me/api/portraits/women/1.jpg",
+        type: "Essay",
+        status: "pending",
+        difficulty: "Intermediate",
+        estimatedTime: "4-5 hours",
+        dueDate: "2024-06-30",
+        submittedDate: null,
+        grade: null,
+        maxPoints: 80,
+        description: "Write a comprehensive essay exploring advanced React hooks patterns, custom hooks development, and performance optimization techniques.",
+        priority: "medium",
+        tags: ["React", "Hooks", "Performance", "Custom Hooks"],
+        attachments: [
+            { name: "essay-guidelines.pdf", size: "678 KB", type: "pdf" },
+            { name: "reference-materials.zip", size: "2.8 MB", type: "zip" }
+        ],
+        submissionFormat: ["Academic Essay", "Code Examples"],
+        category: "Frontend Development"
+    },
+    {
+        id: 6,
+        title: "Machine Learning Model Implementation",
+        course: "AI & Machine Learning",
+        courseId: "ai-ml-004",
+        instructor: "Dr. James Wilson",
+        instructorImg: "https://randomuser.me/api/portraits/men/4.jpg",
+        type: "Project",
+        status: "pending",
+        difficulty: "Advanced",
+        estimatedTime: "12-15 hours",
+        dueDate: "2024-07-05",
+        submittedDate: null,
+        grade: null,
+        maxPoints: 120,
+        description: "Implement and train a machine learning model for image classification. Compare different algorithms and optimize for accuracy and performance.",
+        priority: "high",
+        tags: ["Machine Learning", "Python", "TensorFlow", "Image Classification"],
+        attachments: [
+            { name: "dataset.zip", size: "45.2 MB", type: "zip" },
+            { name: "project-specification.pdf", size: "1.9 MB", type: "pdf" }
+        ],
+        submissionFormat: ["Jupyter Notebook", "Model Files", "Performance Report"],
+        category: "Artificial Intelligence"
+    }
+];
+
+
+export const quizzes = [
+    {
+        id: 1,
+        title: "React Basics Quiz",
+        course: "React Fundamentals",
+        status: "completed",
+        questions: 10,
+        score: 9,
+        maxScore: 10,
+        startDate: "2024-06-10",
+        endDate: "2024-06-15"
+    },
+    {
+        id: 2,
+        title: "Node.js Routing Quiz",
+        course: "Node.js Backend Mastery",
+        status: "pending",
+        questions: 12,
+        score: null,
+        maxScore: 12,
+        startDate: "2024-06-20",
+        endDate: "2024-06-25"
+    },
+    {
+        id: 3,
+        title: "UI/UX Design Principles",
+        course: "UI/UX Design Essentials",
+        status: "available",
+        questions: 15,
+        score: null,
+        maxScore: 15,
+        startDate: "2024-06-18",
+        endDate: "2024-06-22"
+    }
+];
