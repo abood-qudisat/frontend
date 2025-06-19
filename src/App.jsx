@@ -29,6 +29,10 @@ import CreateQuizPage from "./pages/Instructor/CreateQuizPage";
 import QuizInfoPage from "./pages/Instructor/QuizInfoPage";
 import InstructorAssignmentsPage from "./pages/Instructor/InstructorAssignmentsPage";
 import CreateAssignmentPage from "./pages/Instructor/CreateAssignmentPage";
+import LessonsPage from "./pages/User/lessonsPage";
+import CreateLessonPage from "./pages/Instructor/CreateLessonPage";
+import InstructorAssignmentsInfoPage from "./pages/Instructor/InstructorAssignmentsInfoPage";
+import StudentSubmittedAssignmentPage from "./pages/Instructor/StudentSubmittedAssignmentPage";
 
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
@@ -258,11 +262,19 @@ function AppContent() {
             </ProtectedRoute>
           }
         />
+        {/*  */}
 
         <Route
           path="/instructor-quizzes"
           element={
             <InstructorQuizzesPage />
+          }
+        />
+
+        <Route
+          path="/lessons/:id"
+          element={
+            <LessonsPage />
           }
         />
 
@@ -300,6 +312,34 @@ function AppContent() {
           path="/instructor-assignments"
           element={
             <InstructorAssignmentsPage />
+          }
+        />
+
+        <Route
+          path="/instructor-assignments-info"
+          element={
+            <InstructorAssignmentsInfoPage />
+          }
+        />
+
+        <Route
+          path="/create-lesson"
+          element={
+            <CreateLessonPage />
+          }
+        />
+
+        <Route
+          path="/manage-lesson/:id?"
+          element={
+            <CreateLessonPage />
+          }
+        />
+
+        <Route
+          path="/student-submitted-assignment/:id?"
+          element={
+            <StudentSubmittedAssignmentPage />
           }
         />
 

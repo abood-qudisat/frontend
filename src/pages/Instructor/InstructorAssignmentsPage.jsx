@@ -149,7 +149,7 @@ const InstructorAssignmentsPage = () => {
                                     <span className="text-sm text-gray-500">Points: {assignment.totalPoints}</span>
                                     <div className="flex gap-2">
                                         <button
-                                            onClick={() => navigate(`/instructor/assignments/${assignment.id}`)}
+                                            onClick={() => navigate(`/instructor-assignments-info`)}
                                             className="text-emerald-600 hover:underline text-sm font-medium"
                                         >
                                             View

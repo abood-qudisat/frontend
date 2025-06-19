@@ -3,14 +3,16 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BookOpen, Layout, FileText, PenTool, BarChart2, User, LogOut, ChevronLeft, X, } from "lucide-react";
 import { useAuth } from "../../contexts/AuthContext";
 
-const Sidebar = ({ isOpen, toggleSidebar, admin = false }) => {
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   const location = useLocation();
-  const { logout } = useAuth();
+  // const { logout, userType } = useAuth();
+  const { logout, } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
     navigate("/login");
   };
+  const userType = 'admin';
 
   const menuItems = [
     { icon: Layout, label: "Dashboard", path: "/" },
@@ -23,9 +25,7 @@ const Sidebar = ({ isOpen, toggleSidebar, admin = false }) => {
 
   const menuItemsAmin = [
     { icon: Layout, label: "Dashboard", path: "/instructor-dashboard" },
-    { icon: FileText, label: "Quizzes", path: "/instructor-quizzes" },
     { icon: User, label: "Assignments", path: "/instructor-assignments" },
-
   ]
 
   const isActive = (path) => location.pathname === path;
@@ -81,8 +81,8 @@ const Sidebar = ({ isOpen, toggleSidebar, admin = false }) => {
 
           {/* Menu */}
           <nav className="flex-1 px-3 py-4 overflow-y-auto space-y-1">
-            {(admin ? menuItemsAmin : menuItems).map(({ icon: Icon, label, path }) => (
-              <Link
+            {(userType == "admin" ? menuItemsAmin : menuItems).map(({ icon: Icon, label, path }) => (
+              < Link
                 key={path}
                 to={path}
                 onClick={() => {
@@ -119,7 +119,7 @@ const Sidebar = ({ isOpen, toggleSidebar, admin = false }) => {
             </button>
           </div>
         </div>
-      </aside>
+      </aside >
     </>
   );
 };

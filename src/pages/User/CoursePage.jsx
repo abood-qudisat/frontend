@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, BookOpen, DollarSign, MessageSquare } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Calendar, Clock, BookOpen, MessageSquare } from 'lucide-react';
 import Navbar from '../../components/ui/Navbar';
 import Sidebar from '../../components/ui/Sidebar';
 
@@ -19,15 +20,23 @@ const course = {
     }
 };
 
+const lessons = [
+    { id: 1, title: "Introduction to React", duration: "15 min" },
+    { id: 2, title: "JSX and Component Structure", duration: "25 min" },
+    { id: 3, title: "State and Props Deep Dive", duration: "30 min" },
+    { id: 4, title: "Using useState and useEffect", duration: "20 min" }
+];
+
 const CoursePage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
-
     const [commentInput, setCommentInput] = useState("");
     const [comments, setComments] = useState([
         { name: "Sarah", content: "This course was amazing and easy to follow!" },
         { name: "Ali", content: "Really helped me grasp the basics of React." }
     ]);
+
+    const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+    const navigate = useNavigate();
 
     const handleCommentSubmit = (e) => {
         e.preventDefault();
@@ -42,24 +51,22 @@ const CoursePage = () => {
             <Navbar toggleSidebar={toggleSidebar} />
             <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} admin />
 
-            <div className={`transition-all duration-300 ease-in-out pt-20 ${sidebarOpen ? 'lg:ml-64' : 'lg:ml-20'}`}>
-                <div className="px-6 py-8 max-w-5xl mx-auto space-y-10">
+            <main className={`transition-all duration-300 ease-in-out pt-20 ${sidebarOpen ? 'lg:ml-64' : 'lg:ml-20'}`}>
+                <section className="px-6 py-8 max-w-5xl mx-auto space-y-10">
 
-                    {/* Course Banner */}
+                    {/* Banner */}
                     <div className="rounded-xl overflow-hidden shadow-lg">
                         <img src={course.image} alt={course.title} className="w-full h-64 object-cover" />
                     </div>
 
-                    {/* Course Info Card */}
+                    {/* Course Info */}
                     <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
-                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
                             <h1 className="text-3xl font-bold text-gray-800">{course.title}</h1>
-                            <span className="text-emerald-600 font-semibold text-xl mt-2 md:mt-0">${course.price}</span>
+                            <span className="text-emerald-600 font-semibold text-xl">${course.price}</span>
                         </div>
-
                         <p className="text-gray-600">{course.description}</p>
-
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-700 pt-2">
+                        <div className="flex flex-wrap gap-6 text-sm text-gray-700 pt-2">
                             <div className="flex items-center gap-2">
                                 <BookOpen className="w-4 h-4" />
                                 <span className="font-medium">Category:</span> {course.category}
@@ -75,10 +82,7 @@ const CoursePage = () => {
                         </div>
 
                         <button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 px-6 rounded-lg font-medium 
-                    hover:from-emerald-700 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 
-                    focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl 
-                    transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed
-                    disabled:transform-none">
+                            hover:from-emerald-700 hover:to-teal-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none shadow-md transition-all">
                             Enroll Now
                         </button>
                     </div>
@@ -92,7 +96,37 @@ const CoursePage = () => {
                         </div>
                     </div>
 
-                    {/* Comments Section */}
+                    {/* Lessons */}
+                    <div className="bg-white p-6 rounded-xl shadow-md">
+                        <div className="flex items-center gap-2 mb-4">
+                            <BookOpen className="w-5 h-5 text-emerald-600" />
+                            <h2 className="text-lg font-semibold text-gray-800">Course Lessons</h2>
+                            <button
+                                className="ml-auto bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-medium transition-all shadow-md"
+                                onClick={() => navigate('/manage-lesson')}
+                            >
+                                + Add Lesson
+                            </button>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {lessons.map((lesson) => (
+                                <div
+                                    key={lesson.id}
+                                    onClick={() => navigate(`/lessons/${lesson.id}`)}
+                                    className="cursor-pointer group p-4 rounded-lg border border-gray-200 hover:shadow-md hover:border-emerald-400 transition"
+                                >
+                                    <div className="flex items-center justify-between">
+                                        <h4 className="text-gray-800 font-semibold group-hover:text-emerald-600">{lesson.title}</h4>
+                                        <span className="text-xs text-gray-500">{lesson.duration}</span>
+                                    </div>
+                                    <div className="mt-1 text-sm text-gray-500">Click to open lesson</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Comments */}
                     <div className="bg-white p-6 rounded-xl shadow-md">
                         <div className="flex items-center gap-2 mb-4">
                             <MessageSquare className="w-5 h-5 text-emerald-600" />
@@ -119,17 +153,14 @@ const CoursePage = () => {
                             <button
                                 type="submit"
                                 className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 px-6 rounded-lg font-medium 
-                                    hover:from-emerald-700 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 
-                                    focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl 
-                                    transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed
-                                    disabled:transform-none"
+                                    hover:from-emerald-700 hover:to-teal-700 focus:ring-2 focus:ring-emerald-500 transition-all shadow-md"
                             >
                                 Post
                             </button>
                         </form>
                     </div>
-                </div>
-            </div>
+                </section>
+            </main>
         </div>
     );
 };
