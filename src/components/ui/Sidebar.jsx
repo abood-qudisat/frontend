@@ -12,7 +12,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     logout();
     navigate("/login");
   };
-  const userType = 'admin';
+  const userType = 'user';
 
   const menuItems = [
     { icon: Layout, label: "Dashboard", path: "/" },

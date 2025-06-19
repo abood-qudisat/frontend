@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "http://localhost:5000/api/"; // Update with your API base URL
+export const baseURL = "http://localhost:5050/api/"; // Update with your API base URL
 
 let current_token = "";
 
