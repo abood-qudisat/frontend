@@ -167,6 +167,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setIsLoading(true);
     removeStoreData(Constants.storageTokenKeyName);
+    localStorage.clear();
     removeStoreData(Constants.userData);
     removeStoreData(Constants.user_type);
     clearAuthToken();

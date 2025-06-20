@@ -11,10 +11,13 @@ import {
 } from 'lucide-react';
 import Navbar from '../../components/ui/Navbar';
 import Sidebar from '../../components/ui/Sidebar';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Dashboard = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+    const {user} = useAuth()
 
 
     const studentInfo = {
@@ -46,7 +49,7 @@ const Dashboard = () => {
                     {/* Welcome Section */}
                     <div className="mb-6 md:mb-8">
                         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-                            Welcome back, {studentInfo.name}! 👋
+                            Welcome back, {user.name}! 👋
                         </h1>
                         <p className="text-gray-600">
                             Track your progress and continue your learning journey

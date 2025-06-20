@@ -14,6 +14,9 @@ const CourseCard = ({ course }) => {
     if (success) {
       console.log("Enrollment successful:", data);
       // Optionally, you can redirect to the course page or show a success message
+    } else {
+      console.error("Enrollment failed:", data);
+      // Optionally, you can show an error message to the user
     }
   };
   return (

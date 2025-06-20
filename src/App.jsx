@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 
 // Auth Components
@@ -84,8 +89,8 @@ const PublicRoute = ({ children }) => {
       userType === "admin"
         ? "/dashboard/admin"
         : userType === "instructor"
-          ? "/dashboard/instructor"
-          : "/dashboard/student";
+        ? "/dashboard/instructor"
+        : "/dashboard/student";
 
     return <Navigate to={dashboardPath} replace />;
   }
@@ -124,8 +129,8 @@ const UnauthorizedPage = () => {
             userType === "admin"
               ? "/dashboard/admin"
               : userType === "instructor"
-                ? "/dashboard/instructor"
-                : "/dashboard/student"
+              ? "/dashboard/instructor"
+              : "/dashboard/student"
           }
           replace
         />
@@ -191,7 +196,7 @@ function AppContent() {
           path="/dashboard/admin"
           element={
             <ProtectedRoute allowedRoles={["admin"]}>
-              <Dashboard />
+              <AdminDashboard />
             </ProtectedRoute>
           }
         />
@@ -269,26 +274,11 @@ function AppContent() {
         />
         {/*  */}
 
-        <Route
-          path="/instructor-quizzes"
-          element={
-            <InstructorQuizzesPage />
-          }
-        />
+        <Route path="/instructor-quizzes" element={<InstructorQuizzesPage />} />
 
-        <Route
-          path="/lessons/:id"
-          element={
-            <LessonsPage />
-          }
-        />
+        <Route path="/lessons/:id" element={<LessonsPage />} />
 
-        <Route
-          path="/create-quizzes"
-          element={
-            <CreateQuizPage />
-          }
-        />
+        <Route path="/create-quizzes" element={<CreateQuizPage />} />
 
         {/* Home/Landing Page */}
         <Route
@@ -300,52 +290,26 @@ function AppContent() {
           }
         />
 
-        <Route
-          path="/instructor-dashboard"
-          element={
-            <InstructorDashboard />
-          }
-        />
-        <Route
-          path="/create-assignment"
-          element={
-            <CreateAssignmentPage />
-          }
-        />
+        <Route path="/instructor-dashboard" element={<InstructorDashboard />} />
+        <Route path="/create-assignment" element={<CreateAssignmentPage />} />
 
         <Route
           path="/instructor-assignments"
-          element={
-            <InstructorAssignmentsPage />
-          }
+          element={<InstructorAssignmentsPage />}
         />
 
         <Route
           path="/instructor-assignments-info"
-          element={
-            <InstructorAssignmentsInfoPage />
-          }
+          element={<InstructorAssignmentsInfoPage />}
         />
 
-        <Route
-          path="/create-lesson"
-          element={
-            <CreateLessonPage />
-          }
-        />
+        <Route path="/create-lesson" element={<CreateLessonPage />} />
 
-        <Route
-          path="/manage-lesson/:id?"
-          element={
-            <CreateLessonPage />
-          }
-        />
+        <Route path="/manage-lesson/:id?" element={<CreateLessonPage />} />
 
         <Route
           path="/student-submitted-assignment/:id?"
-          element={
-            <StudentSubmittedAssignmentPage />
-          }
+          element={<StudentSubmittedAssignmentPage />}
         />
 
         <Route
@@ -378,12 +342,11 @@ function AppContent() {
         <Route
           path="/instructor-page/:id?"
           element={
-            // <ProtectedRoute allowedRoles={["student", "instructor", "admin"]}>
-            <InstructorProfilePage />
-            // </ProtectedRoute>
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <InstructorProfilePage />
+            </ProtectedRoute>
           }
         />
-
 
         <Route
           path="/instructor-courses/:id?"
@@ -393,7 +356,6 @@ function AppContent() {
             // </ProtectedRoute>
           }
         />
-
 
         {/* Default Route - Redirect based on auth status */}
         <Route path="/" element={<DefaultRedirect />} />
@@ -422,8 +384,8 @@ const DefaultRedirect = () => {
       userType === "admin"
         ? "/dashboard/admin"
         : userType === "instructor"
-          ? "/dashboard/instructor"
-          : "/dashboard/student";
+        ? "/dashboard/instructor"
+        : "/dashboard/student";
 
     return <Navigate to={dashboardPath} replace />;
   }
