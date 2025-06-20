@@ -19,9 +19,13 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
+
+  // User ==> mhammedheshamf@gmail.com ==== Admin@123
+  // Admin ==> vapicix@mailinator.com ==== Open@1234
+
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: "mhammedheshamf@gmail.com",
+    password: "Admin@123",
     showPassword: false,
     rememberMe: false,
   });
@@ -96,7 +100,7 @@ const LoginPage = () => {
         );
       }
     } catch (error) {
-      console.error("Login error:", error);
+      console.log("Login error:", error);
       setApiError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);

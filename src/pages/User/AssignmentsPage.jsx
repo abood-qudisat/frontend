@@ -101,7 +101,7 @@ const AssignmentsPage = () => {
                 <div className="px-6 py-8">
                     {/* Header Section */}
                     <div className="mb-8">
-                        <h1 className="text-3xl font-semibold text-gray-800 mb-4">📚 My Assignments</h1>
+                        <h1 className="text-3xl font-semibold text-gray-800 mb-4">My Assignments</h1>
                         <p className="text-gray-600 mb-6">Track your assignments, manage deadlines, and submit your work seamlessly.</p>
 
                         {/* Stats Cards */}

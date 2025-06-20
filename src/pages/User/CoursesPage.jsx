@@ -35,7 +35,7 @@ const CoursesPage = () => {
       >
         <div className="px-6 py-8">
           <h1 className="text-3xl font-semibold text-gray-800 mb-4">
-            📚 Explore Courses
+            Explore Courses
           </h1>
           <p className="text-gray-600 mb-8">
             Choose from our available courses and start learning today.

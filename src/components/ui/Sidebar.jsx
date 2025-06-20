@@ -7,12 +7,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   const location = useLocation();
   // const { logout, userType } = useAuth();
   const { logout, } = useAuth();
+  const userType = 'admin'
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
     navigate("/login");
   };
-  const userType = 'user';
 
   const menuItems = [
     { icon: Layout, label: "Dashboard", path: "/" },
@@ -23,9 +23,17 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     // { icon: Bell, label: "Notifications", path: "/notifications" },
   ];
 
-  const menuItemsAmin = [
+  const menuItemsinstructor = [
     { icon: Layout, label: "Dashboard", path: "/instructor-dashboard" },
     { icon: User, label: "Assignments", path: "/instructor-assignments" },
+  ]
+
+  const menuItemsAmin = [
+    { icon: Layout, label: "Dashboard", path: "/admin-dashboard" },
+    { icon: BookOpen, label: "Manage Instructors", path: "/admin-instructors" },
+    { icon: User, label: "Manage Users", path: "/admin-users" },
+    // { icon: FileText, label: "Reports", path: "/admin-reports" },
+    // { icon: BarChart2, label: "Analytics", path: "/admin-analytics" },
   ]
 
   const isActive = (path) => location.pathname === path;
@@ -81,7 +89,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
           {/* Menu */}
           <nav className="flex-1 px-3 py-4 overflow-y-auto space-y-1">
-            {(userType == "admin" ? menuItemsAmin : menuItems).map(({ icon: Icon, label, path }) => (
+            {(userType == "instructor" ? menuItemsinstructor : (userType == 'admin' ? menuItemsAmin : menuItems)).map(({ icon: Icon, label, path }) => (
               < Link
                 key={path}
                 to={path}

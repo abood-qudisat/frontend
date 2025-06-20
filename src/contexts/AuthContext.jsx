@@ -50,11 +50,11 @@ export const AuthProvider = ({ children }) => {
       const storedUserType = getStoreJsonData(Constants.user_type);
       if (storedUserType) setUserType(storedUserType);
 
-      const storedBusiness = getStoreJsonData(Constants.businessData);
-      if (storedBusiness) setBusinessData(storedBusiness);
+      // const storedBusiness = getStoreJsonData(Constants.businessData);
+      // if (storedBusiness) setBusinessData(storedBusiness);
 
-      const storedCurrency = getStoreJsonData(Constants.default_currency);
-      if (storedCurrency) setCurrency(storedCurrency);
+      // const storedCurrency = getStoreJsonData(Constants.default_currency);
+      // if (storedCurrency) setCurrency(storedCurrency);
 
       const storedTheme =
         getStoreJsonData(Constants.appTheme) ||
