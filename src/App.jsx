@@ -87,10 +87,10 @@ const PublicRoute = ({ children }) => {
   if (isLoggedIn) {
     const dashboardPath =
       userType === "admin"
-        ? "/dashboard/admin"
+        ? "/dashboard-admin"
         : userType === "instructor"
-        ? "/dashboard/instructor"
-        : "/dashboard/student";
+        ? "/dashboard-instructor"
+        : "/dashboard-student";
 
     return <Navigate to={dashboardPath} replace />;
   }
@@ -127,10 +127,10 @@ const UnauthorizedPage = () => {
         <Navigate
           to={
             userType === "admin"
-              ? "/dashboard/admin"
+              ? "/dashboard-admin"
               : userType === "instructor"
-              ? "/dashboard/instructor"
-              : "/dashboard/student"
+              ? "/dashboard-instructor"
+              : "/dashboard-student"
           }
           replace
         />
@@ -177,7 +177,7 @@ function AppContent() {
 
         {/* Protected Routes - Require authentication */}
         <Route
-          path="/dashboard/student"
+          path="/dashboard-student"
           element={
             <ProtectedRoute allowedRoles={["student"]}>
               <Dashboard />
@@ -185,15 +185,15 @@ function AppContent() {
           }
         />
         <Route
-          path="/dashboard/instructor"
+          path="/dashboard-instructor"
           element={
             <ProtectedRoute allowedRoles={["instructor"]}>
-              <Dashboard />
+              <InstructorDashboard />
             </ProtectedRoute>
           }
         />
         <Route
-          path="/dashboard/admin"
+          path="/dashboard-admin"
           element={
             <ProtectedRoute allowedRoles={["admin"]}>
               <AdminDashboard />
@@ -290,52 +290,92 @@ function AppContent() {
           }
         />
 
-        <Route path="/instructor-dashboard" element={<InstructorDashboard />} />
-        <Route path="/create-assignment" element={<CreateAssignmentPage />} />
+        <Route
+          path="/instructor-dashboard"
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <InstructorDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/create-assignment"
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <CreateAssignmentPage />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/instructor-assignments"
-          element={<InstructorAssignmentsPage />}
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <InstructorAssignmentsPage />
+            </ProtectedRoute>
+          }
         />
 
         <Route
           path="/instructor-assignments-info"
-          element={<InstructorAssignmentsInfoPage />}
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <InstructorAssignmentsInfoPage />
+            </ProtectedRoute>
+          }
         />
 
-        <Route path="/create-lesson" element={<CreateLessonPage />} />
+        <Route
+          path="/create-lesson"
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <CreateLessonPage />
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/manage-lesson/:id?" element={<CreateLessonPage />} />
+        <Route
+          path="/manage-lesson/:id?"
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <CreateLessonPage />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/student-submitted-assignment/:id?"
-          element={<StudentSubmittedAssignmentPage />}
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <StudentSubmittedAssignmentPage />
+            </ProtectedRoute>
+          }
         />
 
         <Route
           path="/admin-dashboard"
           element={
-            // <ProtectedRoute allowedRoles={["student", "instructor", "admin"]}>
-            <AdminDashboard />
-            // </ProtectedRoute>
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminDashboard />
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/admin-instructors"
           element={
-            // <ProtectedRoute allowedRoles={["student", "instructor", "admin"]}>
-            <ManageInstructorsPage />
-            // </ProtectedRoute>
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <ManageInstructorsPage />
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/add-instructor/:id?"
           element={
-            // <ProtectedRoute allowedRoles={["student", "instructor", "admin"]}>
-            <AddInstructorPage />
-            // </ProtectedRoute>
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AddInstructorPage />
+            </ProtectedRoute>
           }
         />
 
@@ -382,10 +422,10 @@ const DefaultRedirect = () => {
   if (isLoggedIn) {
     const dashboardPath =
       userType === "admin"
-        ? "/dashboard/admin"
+        ? "/dashboard-admin"
         : userType === "instructor"
-        ? "/dashboard/instructor"
-        : "/dashboard/student";
+        ? "/instructor-dashboard"
+        : "/dashboard-student";
 
     return <Navigate to={dashboardPath} replace />;
   }

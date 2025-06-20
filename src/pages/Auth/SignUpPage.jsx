@@ -96,8 +96,8 @@ const SignUpPage = () => {
         // Navigate based on user role
         const dashboardPath =
           formData.role === "instructor"
-            ? "/dashboard/instructor"
-            : "/dashboard/student";
+            ? "/dashboard-instructor"
+            : "/dashboard-student";
         navigate(dashboardPath, { replace: true });
       } else {
         // Registration failed

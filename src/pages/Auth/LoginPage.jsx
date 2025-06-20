@@ -87,10 +87,10 @@ const LoginPage = () => {
         // Login successful - navigate based on user role
         const dashboardPath =
           result.userType === "admin"
-            ? "/dashboard/admin"
+            ? "/dashboard-admin"
             : result.userType === "instructor"
-            ? "/dashboard/instructor"
-            : "/dashboard/student";
+            ? "/dashboard-instructor"
+            : "/dashboard-student";
 
         navigate(dashboardPath, { replace: true });
       } else {
