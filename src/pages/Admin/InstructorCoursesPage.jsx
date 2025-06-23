@@ -22,7 +22,7 @@ const course = {
   assignments: 2,
 };
 
-const InstructorCoursesPage = () => {
+const AdminCoursesPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
@@ -169,4 +169,4 @@ const InstructorCoursesPage = () => {
   );
 };
 
-export default InstructorCoursesPage;
+export default AdminCoursesPage;

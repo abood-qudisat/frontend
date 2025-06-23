@@ -42,7 +42,12 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import ManageInstructorsPage from "./pages/Admin/ManageInstructorsPage";
 import AddInstructorPage from "./pages/Admin/ AddInstructorPage";
 import InstructorProfilePage from "./pages/Admin/InstructorProfilePage";
-import InstructorCoursesPage from "./pages/Admin/InstructorCoursesPage";
+import AdminCoursesPage from "./pages/Admin/InstructorCoursesPage";
+import AdminManageUsersPage from "./pages/Admin/AdminUsersPage";
+import AdminUserDetailsPage from "./pages/Admin/AdminUserDetailsPage";
+import InstructorCoursesPage from "./pages/Instructor/InstructorCoursesPage";
+import CreateModelPage from "./pages/Instructor/CreateModelPage";
+import InstructorLessonsPage from "./pages/Instructor/InstructorlessonsPage";
 
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
@@ -179,7 +184,15 @@ function AppContent() {
         <Route
           path="/dashboard-student"
           element={
-            <ProtectedRoute allowedRoles={["student"]}>
+            <ProtectedRoute allowedRoles={["user"]}>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute allowedRoles={["user"]}>
               <Dashboard />
             </ProtectedRoute>
           }
@@ -205,7 +218,7 @@ function AppContent() {
         <Route
           path="/courses"
           element={
-            <ProtectedRoute allowedRoles={["student", "instructor"]}>
+            <ProtectedRoute allowedRoles={["user", "instructor"]}>
               <CoursesPage />
             </ProtectedRoute>
           }
@@ -213,7 +226,7 @@ function AppContent() {
         <Route
           path="/assignments"
           element={
-            <ProtectedRoute allowedRoles={["student", "instructor"]}>
+            <ProtectedRoute allowedRoles={["user", "instructor"]}>
               <AssignmentsPage />
             </ProtectedRoute>
           }
@@ -222,7 +235,7 @@ function AppContent() {
         <Route
           path="/quizzes"
           element={
-            <ProtectedRoute allowedRoles={["student", "instructor"]}>
+            <ProtectedRoute allowedRoles={["user", "instructor"]}>
               <QuizzesPage />
             </ProtectedRoute>
           }
@@ -231,7 +244,7 @@ function AppContent() {
         <Route
           path="/exam"
           element={
-            <ProtectedRoute allowedRoles={["student", "instructor"]}>
+            <ProtectedRoute allowedRoles={["user", "instructor"]}>
               <ExamPage />
             </ProtectedRoute>
           }
@@ -240,7 +253,7 @@ function AppContent() {
         <Route
           path="/quiz-result"
           element={
-            <ProtectedRoute allowedRoles={["student", "instructor"]}>
+            <ProtectedRoute allowedRoles={["user", "instructor"]}>
               <QuizResultPage />
             </ProtectedRoute>
           }
@@ -249,7 +262,7 @@ function AppContent() {
         <Route
           path="/profile"
           element={
-            <ProtectedRoute allowedRoles={["student", "instructor"]}>
+            <ProtectedRoute allowedRoles={["user", "instructor"]}>
               <ProfilePage />
             </ProtectedRoute>
           }
@@ -258,33 +271,64 @@ function AppContent() {
         <Route
           path="/create-courses"
           element={
-            <ProtectedRoute allowedRoles={["student", "instructor"]}>
+            <ProtectedRoute allowedRoles={["user", "instructor"]}>
               <CreateCoursesPage />
             </ProtectedRoute>
           }
         />
 
         <Route
-          path="/course"
+          path="/course-instructor/:id"
           element={
-            <ProtectedRoute allowedRoles={["student", "instructor"]}>
-              <CoursePage />
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <InstructorCoursesPage />
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/create-model-instructor/:id"
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <CreateModelPage />
+            </ProtectedRoute>
+          }
+        />
+
         {/*  */}
 
-        <Route path="/instructor-quizzes" element={<InstructorQuizzesPage />} />
+        <Route
+          path="/instructor-quizzes/:id"
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <InstructorQuizzesPage />
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/lessons/:id" element={<LessonsPage />} />
+        <Route
+          path="/instructor-lessons/:id"
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <InstructorLessonsPage />
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/create-quizzes" element={<CreateQuizPage />} />
+        <Route
+          path="/create-quizzes"
+          element={
+            <ProtectedRoute allowedRoles={["instructor"]}>
+              <CreateQuizPage />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Home/Landing Page */}
         <Route
           path="/quiz-info"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute allowedRoles={["instructor"]}>
               <QuizInfoPage />
             </ProtectedRoute>
           }
@@ -380,10 +424,28 @@ function AppContent() {
         />
 
         <Route
-          path="/instructor-page/:id?"
+          path="/instructor-page/:id"
           element={
             <ProtectedRoute allowedRoles={["admin"]}>
               <InstructorProfilePage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin-users"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminManageUsersPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin-users-details/:id?"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminUserDetailsPage />
             </ProtectedRoute>
           }
         />

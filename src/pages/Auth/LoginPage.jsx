@@ -21,10 +21,11 @@ const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   // User ==> mhammedheshamf@gmail.com ==== Admin@123
-  // Admin ==> vapicix@mailinator.com ==== Open@1234
+  // instructor ==> vapicix@mailinator.com ==== Open@1234
+  // Admin ==> admin@gmail.com ==== Admin@123
 
   const [formData, setFormData] = useState({
-    email: "mhammedheshamf@gmail.com",
+    email: "admin@gmail.com",
     password: "Admin@123",
     showPassword: false,
     rememberMe: false,
@@ -89,8 +90,8 @@ const LoginPage = () => {
           result.userType === "admin"
             ? "/dashboard-admin"
             : result.userType === "instructor"
-            ? "/dashboard-instructor"
-            : "/dashboard-student";
+              ? "/dashboard-instructor"
+              : "/dashboard-student";
 
         navigate(dashboardPath, { replace: true });
       } else {

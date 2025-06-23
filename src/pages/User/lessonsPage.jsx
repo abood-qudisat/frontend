@@ -63,7 +63,7 @@ Learn how to manage complex state and side effects in your React applications.`,
         }
     },
     {
-        id: 3,
+        id: 12,
         title: "React Router and Navigation",
         duration: "18 min",
         material: `Learn how to implement navigation in your React applications using React Router. 
@@ -113,7 +113,7 @@ const LessonsPage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [lessonData, setLessonData] = useState(lessons.find(l => l.id === parseInt(id)));
+    const [lessonData, setLessonData] = useState(lessons.find(l => l.id == parseInt(id)));
 
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 

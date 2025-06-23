@@ -53,9 +53,8 @@ const AdminDashboard = () => {
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} admin />
 
       <div
-        className={`transition-all duration-300 ease-in-out pt-20 ${
-          sidebarOpen ? "lg:ml-64" : "lg:ml-20"
-        }`}
+        className={`transition-all duration-300 ease-in-out pt-20 ${sidebarOpen ? "lg:ml-64" : "lg:ml-20"
+          }`}
       >
         <div className="px-6 py-10 max-w-7xl mx-auto space-y-10">
           {/* Header */}
@@ -110,25 +109,6 @@ const AdminDashboard = () => {
               <PlusCircle className="w-6 h-6" /> Create New Course
             </button>
 
-            <button
-              className="bg-gradient-to-r from-indigo-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-medium 
-                    hover:from-indigo-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 
-                    focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl 
-                    transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed
-                    disabled:transform-none flex items-center gap-3"
-            >
-              <BarChart3 className="w-6 h-6" /> View Analytics
-            </button>
-
-            <button
-              className="bg-gradient-to-r from-yellow-600 to-yellow-600 text-white py-3 px-6 rounded-lg font-medium 
-                    hover:from-yellow-700 hover:to-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 
-                    focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl 
-                    transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed
-                    disabled:transform-none flex items-center gap-3"
-            >
-              <ClipboardList className="w-6 h-6" /> View Reports
-            </button>
           </div>
 
           {/* Chart Placeholder */}

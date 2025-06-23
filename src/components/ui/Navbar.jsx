@@ -17,17 +17,10 @@ const Navbar = ({ toggleSidebar }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-
   const handleLogout = () => {
     logout();
     navigate("/login");
     setDropdownOpen(false);
-  };
-
-  const handleProfileClick = () => {
-    // Navigate to profile page when implemented
-    setDropdownOpen(false);
-    navigate('/profile');
   };
 
   const getUserDisplayName = () => {
@@ -68,7 +61,6 @@ const Navbar = ({ toggleSidebar }) => {
           </div>
 
           <div className="flex items-center space-x-4 md:space-x-4">
-
             {/* User Profile Dropdown */}
             <div className="relative">
               <button
@@ -103,8 +95,9 @@ const Navbar = ({ toggleSidebar }) => {
 
                 {/* Dropdown Arrow */}
                 <ChevronDown
-                  className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""
-                    }`}
+                  className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+                    dropdownOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
 
@@ -122,7 +115,6 @@ const Navbar = ({ toggleSidebar }) => {
                     {/* User Info Header */}
                     <div className="px-4 py-3 border-b border-gray-100">
                       <div className="flex items-center space-x-3">
-
                         <div>
                           <div className="font-medium text-gray-900 text-left">
                             {getUserDisplayName()}
@@ -135,25 +127,6 @@ const Navbar = ({ toggleSidebar }) => {
                           </div>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Menu Items */}
-                    <div className="py-2">
-                      <button
-                        onClick={handleProfileClick}
-                        className="flex items-center space-x-3 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                      >
-                        <User className="w-4 h-4" />
-                        <span>View Profile</span>
-                      </button>
-
-                      <button
-                        onClick={() => setDropdownOpen(false)}
-                        className="flex items-center space-x-3 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                      >
-                        <Settings className="w-4 h-4" />
-                        <span>Settings</span>
-                      </button>
                     </div>
 
                     {/* Logout */}

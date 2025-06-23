@@ -57,24 +57,6 @@ const InstructorDashboard = () => {
               </div>
               <p className="text-2xl font-bold">{courses?.length}</p>
             </div>
-
-            {/* <div className="bg-blue-100 text-blue-800 p-5 rounded-xl shadow">
-              <div className="flex items-center gap-3 mb-2">
-                <Users className="w-6 h-6" />
-                <h2 className="text-lg font-semibold">Students</h2>
-              </div>
-              <p className="text-2xl font-bold">{instructor.totalStudents}</p>
-            </div>
-
-            <div className="bg-yellow-100 text-yellow-800 p-5 rounded-xl shadow">
-              <div className="flex items-center gap-3 mb-2">
-                <ClipboardList className="w-6 h-6" />
-                <h2 className="text-lg font-semibold">To Grade</h2>
-              </div>
-              <p className="text-2xl font-bold">
-                {instructor.assignmentsToGrade}
-              </p>
-            </div> */}
           </div>
 
           {/* Courses as Cards */}
@@ -100,7 +82,7 @@ const InstructorDashboard = () => {
               <div
                 key={course.id}
                 className="bg-white rounded-xl overflow-hidden shadow border hover:shadow-xl transition-all duration-300"
-                onClick={() => navigate("/course")}
+                onClick={() => navigate(`/course-instructor/${course.id}`)}
               >
                 <div
                   className="h-40 bg-cover bg-center"
