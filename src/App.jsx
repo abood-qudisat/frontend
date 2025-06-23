@@ -184,7 +184,7 @@ function AppContent() {
         <Route
           path="/dashboard-student"
           element={
-            <ProtectedRoute allowedRoles={["user"]}>
+            <ProtectedRoute allowedRoles={["student"]}>
               <Dashboard />
             </ProtectedRoute>
           }
@@ -192,7 +192,7 @@ function AppContent() {
         <Route
           path="/"
           element={
-            <ProtectedRoute allowedRoles={["user"]}>
+            <ProtectedRoute allowedRoles={["student"]}>
               <Dashboard />
             </ProtectedRoute>
           }
@@ -218,7 +218,7 @@ function AppContent() {
         <Route
           path="/courses"
           element={
-            <ProtectedRoute allowedRoles={["user", "instructor"]}>
+            <ProtectedRoute allowedRoles={["student", "instructor"]}>
               <CoursesPage />
             </ProtectedRoute>
           }
@@ -226,7 +226,7 @@ function AppContent() {
         <Route
           path="/assignments"
           element={
-            <ProtectedRoute allowedRoles={["user", "instructor"]}>
+            <ProtectedRoute allowedRoles={["student", "instructor"]}>
               <AssignmentsPage />
             </ProtectedRoute>
           }
@@ -235,7 +235,7 @@ function AppContent() {
         <Route
           path="/quizzes"
           element={
-            <ProtectedRoute allowedRoles={["user", "instructor"]}>
+            <ProtectedRoute allowedRoles={["student", "instructor"]}>
               <QuizzesPage />
             </ProtectedRoute>
           }
@@ -244,7 +244,7 @@ function AppContent() {
         <Route
           path="/exam"
           element={
-            <ProtectedRoute allowedRoles={["user", "instructor"]}>
+            <ProtectedRoute allowedRoles={["student", "instructor"]}>
               <ExamPage />
             </ProtectedRoute>
           }
@@ -253,7 +253,7 @@ function AppContent() {
         <Route
           path="/quiz-result"
           element={
-            <ProtectedRoute allowedRoles={["user", "instructor"]}>
+            <ProtectedRoute allowedRoles={["student", "instructor"]}>
               <QuizResultPage />
             </ProtectedRoute>
           }
@@ -262,7 +262,7 @@ function AppContent() {
         <Route
           path="/profile"
           element={
-            <ProtectedRoute allowedRoles={["user", "instructor"]}>
+            <ProtectedRoute allowedRoles={["student", "instructor"]}>
               <ProfilePage />
             </ProtectedRoute>
           }
@@ -271,7 +271,7 @@ function AppContent() {
         <Route
           path="/create-courses"
           element={
-            <ProtectedRoute allowedRoles={["user", "instructor"]}>
+            <ProtectedRoute allowedRoles={["student", "instructor"]}>
               <CreateCoursesPage />
             </ProtectedRoute>
           }

@@ -20,7 +20,7 @@ const LoginPage = () => {
   const { login } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
-  // User ==> mhammedheshamf@gmail.com ==== Admin@123
+  // User ==> student@gmail.com ==== Admin@123
   // instructor ==> vapicix@mailinator.com ==== Open@1234
   // Admin ==> admin@gmail.com ==== Admin@123
 
