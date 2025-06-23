@@ -124,45 +124,46 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = async (data) => {
-    try {
-      const response = await axios.post(
-        `${baseURL}${Constants.auth.register}`,
-        data
-      );
-      console.log(response);
+ // ...existing code...
+const register = async (data) => {
+  try {
+    const response = await axios.post(
+      `${baseURL}${Constants.auth.register}`,
+      data
+    );
+    const { success, token, user, message } = response.data;
 
-      const { success, token, user, message } = response.data;
-
-      if (!success) {
-        return {
-          status: false,
-          type: "danger",
-          message: message || "Registration failed, please try again",
-        };
-      }
-
-      await storeAuthData(token, user, "user");
-      setAuthToken(token);
-      setToken(token);
-      setUser(user);
-      setUserType("user");
-      setIsLoggedIn(true);
-
-      return {
-        status: true,
-        type: "success",
-        message: "User registered successfully",
-      };
-    } catch (error) {
-      console.error("Register error:", error);
+    if (!success) {
       return {
         status: false,
         type: "danger",
-        message: "Network error, please try again later",
+        message: message || "Registration failed, please try again",
       };
     }
-  };
+
+    // Store token and user info after registration (auto-login)
+    await storeAuthData(token, user, user.role);
+    setAuthToken(token);
+    setToken(token);
+    setUser(user);
+    setUserType(user.role);
+    setIsLoggedIn(true);
+
+    return {
+      status: true,
+      type: "success",
+      message: "User registered successfully",
+    };
+  } catch (error) {
+    console.error("Register error:", error);
+    return {
+      status: false,
+      type: "danger",
+      message: "Network error, please try again later",
+    };
+  }
+};
+// ...existing code...
 
   const logout = () => {
     setIsLoading(true);
