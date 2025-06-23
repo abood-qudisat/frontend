@@ -25,8 +25,8 @@ const LoginPage = () => {
   // Admin ==> admin@gmail.com ==== Admin@123
 
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: "admin@gmail.com",
+    password: "Admin@123",
     showPassword: false,
     rememberMe: false,
   });
